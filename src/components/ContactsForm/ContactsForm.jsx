@@ -5,7 +5,6 @@ import { nanoid } from 'nanoid';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { addContactsThunk } from 'redux/contacts/contactsOperations';
 import { Notify } from 'notiflix';
-import { closeModal } from 'redux/modal/modalReducer';
 
 const ContactsForm = () => {
   const [data, setData] = useState({ name: '', number: '' });
@@ -29,16 +28,14 @@ const ContactsForm = () => {
 
     dispatch(
       addContactsThunk({ name: data.name, number: data.number, id: nanoid() })
-    );
-    // .unwrap()
-    // .then(promiseResult => {
-    //   Notify.success(
-    //     `${promiseResult.name} successfully added to your contacts`
-    //   );
-    // })
-    // .catcth(() => {
-    //   Notify.failure("Sorry, something's wrong");
-    // });
+    )
+      .unwrap()
+      .then(data => {
+        Notify.success(`${data.name} successfully added to your contacts`);
+      })
+      .catcth(() => {
+        Notify.failure("Sorry, something's wrong");
+      });
 
     setData({ name: '', number: '' });
   };
