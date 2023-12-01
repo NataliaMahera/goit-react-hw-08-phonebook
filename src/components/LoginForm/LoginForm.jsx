@@ -1,7 +1,8 @@
 import React from 'react';
 import css from './LoginForm.module.css';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from 'redux/auth/operations';
+import { loginThunk } from 'redux/auth/authOperations';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,6 @@ const LoginForm = () => {
       email,
       password,
     };
-
-    console.log('data login ', formData);
 
     dispatch(loginThunk(formData));
     form.reset();
@@ -45,6 +44,9 @@ const LoginForm = () => {
       <button type="submit" className={css.addBtn}>
         Sign in
       </button>
+      <Link className={css.link} to="/register">
+        Don't have an acount? Sign in
+      </Link>
     </form>
   );
 };

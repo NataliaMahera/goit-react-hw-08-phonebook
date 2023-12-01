@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import css from './RegisterForm.module.css';
-import { registerThunk } from 'redux/auth/operations';
+import { registerThunk } from 'redux/auth/authOperations';
+import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -18,8 +19,6 @@ const RegisterForm = () => {
       email,
       password,
     };
-
-    console.log('data registration ', formData);
 
     dispatch(registerThunk(formData));
     form.reset();
@@ -56,6 +55,9 @@ const RegisterForm = () => {
       <button type="submit" className={css.addBtn}>
         Sign up
       </button>
+      <Link className={css.link} to="/login">
+        Already have an acount? Log in
+      </Link>
     </form>
   );
 };

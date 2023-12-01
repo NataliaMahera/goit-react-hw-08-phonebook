@@ -9,9 +9,9 @@ export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (contacts, filterQuery) => {
     return contacts.filter(
-      ({ name, phone }) =>
+      ({ name, number }) =>
         name.toLowerCase().includes(filterQuery.toLowerCase().trim()) ||
-        phone.includes(filterQuery.toLowerCase().trim())
+        number.includes(filterQuery.toLowerCase().trim())
     );
   }
 );

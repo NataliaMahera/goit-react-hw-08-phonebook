@@ -1,33 +1,25 @@
-.form {
-    display: flex;
-    margin: auto;
-    width: 300px;
-    flex-direction: column;
-    padding: 25px;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.274);
-    border-radius: 5px;
-  }
+
   
   .label {
       display: block;
       margin-bottom: 15px;
       font-weight: 400;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.17;
       letter-spacing: 0.04em;
       color: rgb(254, 255, 255);
   }
   
   .input {
-      width: 95%;
+      width: 97%;
       height: 40px;
       padding-left: 14px;
       border-radius: 5px;
-      border: 2px solid rgba(255, 255, 255, 0.603);
+      border: 1px solid rgba(255, 255, 255, 0.603);
       color: rgb(254, 255, 255);
       background-color: transparent;
       outline: transparent;
+      margin-bottom: 12px;
   }
   
   .input:focus {
@@ -50,7 +42,7 @@
       border: none;
       padding:6px 10px;
       height: 40px;
-      width: 100%;
+      min-width: 160px;
       background-color: rgba(250, 198, 26, 0.63);
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.274);
       cursor: pointer;
@@ -60,14 +52,28 @@
       background-color:  rgba(250, 198, 26, 0.781);
   }
 
-  .link {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 16px;
-    color:  rgba(221, 180, 45, 0.89);
-    /* text-decoration: none; */
+  .form {
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.274);
+    border-radius: 5px;
+    &:hover {
+      cursor: auto;
+    }
   }
 
-  .link:hover {
-    color:  rgba(253, 205, 45, 0.932);
-}
+  .modalText{
+    margin-bottom: 25px;;
+    text-align: center;
+    font-size: 22px;
+    color: rgba(198, 200, 202, 0.87);
+  }
+
+  .descModal{
+    margin-bottom: 8px;
+  }
