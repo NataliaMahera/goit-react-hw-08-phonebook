@@ -31,6 +31,7 @@ const ContactsForm = () => {
     )
       .unwrap()
       .then(data => {
+        setData({ name: '', number: '' });
         Notify.success(`${data.name} successfully added to your contacts`);
       })
       .catcth(() => {

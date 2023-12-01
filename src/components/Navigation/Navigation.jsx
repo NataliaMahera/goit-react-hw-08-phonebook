@@ -9,7 +9,7 @@ const Navigation = () => {
   const isLoggedIn = useSelector(selectAuthIsLoggedIn);
 
   return (
-    <nav>
+    <nav className={css.nav}>
       <ActivePage to="/">
         Phone<span className={css.span}>Book.</span>
       </ActivePage>

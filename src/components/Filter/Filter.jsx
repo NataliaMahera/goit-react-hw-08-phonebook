@@ -15,7 +15,6 @@ const Filter = () => {
   return (
     <>
       <label className={css.filterLabel}>
-        <h2>My phonebook contacts</h2>
         <p className={css.description}>Find contacts by name</p>
         <input
           type="text"

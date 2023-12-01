@@ -15,6 +15,8 @@ import {
 import css from './ContactsPage.module.css';
 import { selectIsOpenModal } from 'redux/modal/modalSelectors';
 import { openModal } from 'redux/modal/modalReducer';
+import ContactsForm from 'components/ContactsForm/ContactsForm';
+import Section from 'components/Section/Section';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const ContactsPage = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const isOpenModal = useSelector(selectIsOpenModal);
+  // const isOpenModal = useSelector(selectIsOpenModal);
 
   useEffect(() => {
     dispatch(getContactsThunk());
@@ -32,24 +34,27 @@ const ContactsPage = () => {
 
   return (
     <Container>
-      <button
+      {/* <button
         className={css.newContactBtn}
         type="button"
         onClick={() => dispatch(openModal())}
       >
         New contact
-      </button>
-      {contacts.length > 0 ? (
-        <Filter />
-      ) : (
-        <Notification message="Your phonebook is empty. Please add your contact!" />
-      )}
+      </button> */}
+      <Section title="Phonebook contacts">
+        <ContactsForm />
+        {contacts.length > 0 ? (
+          <Filter />
+        ) : (
+          <Notification message="Your phonebook is empty. Please add your contact!" />
+        )}
 
-      {error !== null && <p>{error}</p>}
-      {isLoading && <Loader />}
-      {showContacts && <ContactList />}
+        {error !== null && <p>{error}</p>}
+        {isLoading && <Loader />}
+        {showContacts && <ContactList />}
 
-      {isOpenModal && <Modal />}
+        {/* {isOpenModal && <Modal />} */}
+      </Section>
     </Container>
   );
 };
