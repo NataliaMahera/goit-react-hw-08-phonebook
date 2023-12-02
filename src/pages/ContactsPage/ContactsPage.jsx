@@ -29,29 +29,31 @@ const ContactsPage = () => {
   const showContacts = Array.isArray(contacts) && contacts.length > 0;
 
   return (
-    <Container>
-      <Section title="Phonebook contacts">
-        <ContactsForm />
-        {contacts.length > 0 ? (
-          <Filter />
-        ) : (
-          <Notification message="Your phonebook is empty. Please add your contact!" />
-        )}
+    <>
+      {isLoading && <Loader />}
+      <Container>
+        <Section title="Phonebook contacts">
+          {/* {!isLoading && <ContactsForm />} */}
+          <ContactsForm />
+          {contacts.length > 0 ? (
+            <Filter />
+          ) : (
+            <Notification message="Your phonebook is empty. Please add your contact!" />
+          )}
+          {error !== null && <p>{error}</p>}
+          {showContacts && <ContactList />}
 
-        {error !== null && <p>{error}</p>}
-        {isLoading && <Loader />}
-        {showContacts && <ContactList />}
-
-        {/* {isOpenModal && <Modal />} */}
-        {/* <button
+          {/* {isOpenModal && <Modal />} */}
+          {/* <button
         className={css.newContactBtn}
         type="button"
         onClick={() => dispatch(openModal())}
       >
         New contact
       </button> */}
-      </Section>
-    </Container>
+        </Section>
+      </Container>
+    </>
   );
 };
 
