@@ -30,7 +30,6 @@ const ContactsPage = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
       <Container>
         <Section title="Phonebook contacts">
           {/* {!isLoading && <ContactsForm />} */}
@@ -42,7 +41,7 @@ const ContactsPage = () => {
           )}
           {error !== null && <p>{error}</p>}
           {showContacts && <ContactList />}
-
+          {isLoading && <Loader />}
           {/* {isOpenModal && <Modal />} */}
           {/* <button
         className={css.newContactBtn}
