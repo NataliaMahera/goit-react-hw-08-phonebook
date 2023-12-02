@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactsForm.module.css';
 import { nanoid } from 'nanoid';
-import {
-  selectContacts,
-  selectIsLoading,
-} from 'redux/contacts/contactsSelectors';
+import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { addContactsThunk } from 'redux/contacts/contactsOperations';
 import { Notify } from 'notiflix';
 
