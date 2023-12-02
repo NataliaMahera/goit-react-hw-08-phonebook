@@ -11,8 +11,6 @@ import { Notify } from 'notiflix';
 
 const ContactsForm = () => {
   const [data, setData] = useState({ name: '', number: '' });
-  const isLoading = useSelector(selectIsLoading);
-
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
