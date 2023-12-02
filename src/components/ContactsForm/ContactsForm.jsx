@@ -22,21 +22,21 @@ const ContactsForm = () => {
     );
 
     if (isExist) {
-      alert(`${data.name} is already in contacts.`);
+      Notify.warning(`${data.name} is already in contacts.`);
       return;
     }
 
     dispatch(
       addContactsThunk({ name: data.name, number: data.number, id: nanoid() })
-    )
-      .unwrap()
-      .then(data => {
-        setData({ name: '', number: '' });
-        Notify.success(`${data.name} successfully added to your contacts`);
-      })
-      .catcth(() => {
-        Notify.failure("Sorry, something's wrong");
-      });
+    );
+    // .unwrap()
+    // .then(data => {
+    //   setData({ name: '', number: '' });
+    //   Notify.success(`${data.name} successfully added to your contacts`);
+    // })
+    // .catcth(() => {
+    //   Notify.failure("Sorry, something's wrong");
+    // });
 
     setData({ name: '', number: '' });
   };

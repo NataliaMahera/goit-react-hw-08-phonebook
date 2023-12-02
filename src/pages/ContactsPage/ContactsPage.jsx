@@ -2,7 +2,6 @@ import ContactList from 'components/ContactList/ContactList';
 import Container from 'components/Container/Container';
 import Filter from 'components/Filter/Filter';
 import Loader from 'components/Loader/Loader';
-import { Modal } from 'components/Modal/Modal';
 import Notification from 'components/Notification/Notification';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,9 +11,6 @@ import {
   selectError,
   selectIsLoading,
 } from 'redux/contacts/contactsSelectors';
-import css from './ContactsPage.module.css';
-import { selectIsOpenModal } from 'redux/modal/modalSelectors';
-import { openModal } from 'redux/modal/modalReducer';
 import ContactsForm from 'components/ContactsForm/ContactsForm';
 import Section from 'components/Section/Section';
 
@@ -34,13 +30,6 @@ const ContactsPage = () => {
 
   return (
     <Container>
-      {/* <button
-        className={css.newContactBtn}
-        type="button"
-        onClick={() => dispatch(openModal())}
-      >
-        New contact
-      </button> */}
       <Section title="Phonebook contacts">
         <ContactsForm />
         {contacts.length > 0 ? (
@@ -54,6 +43,13 @@ const ContactsPage = () => {
         {showContacts && <ContactList />}
 
         {/* {isOpenModal && <Modal />} */}
+        {/* <button
+        className={css.newContactBtn}
+        type="button"
+        onClick={() => dispatch(openModal())}
+      >
+        New contact
+      </button> */}
       </Section>
     </Container>
   );
